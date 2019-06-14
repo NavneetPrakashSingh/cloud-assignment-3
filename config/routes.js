@@ -20,7 +20,11 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  '/title/get': 'TitleController.get'
+  '/title/get744': 'TitleController.get744',
+  '/title/post744': 'TitleController.post744',
+  '/title/delete744': 'TitleController.delete744',
+  '/search744': {view:'pages/search744'},
+  '/title/searchResults744' : 'TitleController.search744'
 
 
   /***************************************************************************
