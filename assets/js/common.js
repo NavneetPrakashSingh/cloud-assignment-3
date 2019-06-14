@@ -78,7 +78,7 @@ function ajaxToView(){
 $('.search-button-search').click(function(){
   var inputField = $('.search-input').val();
   value = "";
-  if(title =="" || subtitle ==""){
+  if(inputField ==""){
     alert("Search input is empty");
   }else{
   }
