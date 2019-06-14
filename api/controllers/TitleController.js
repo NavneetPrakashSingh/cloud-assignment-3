@@ -30,6 +30,9 @@ module.exports = {
   delete744: function (req, res) {
     let query;
     query = { "id": req.param('titleId') }
+    if(isNaN(req.param('titleId'))){
+      return res.json(JSON.stringify({message:"Id should be numeric only"}));
+    }
     if( req.param('titleId') == ""){
       return res.end(JSON.stringify({message:"Id cannnot be null"}));
     }

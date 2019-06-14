@@ -7,8 +7,11 @@ $(document).ready(function(){
 $('.add-button').click(function(){
     var title = $('.title-text').val();
     var subtitle = $('.subtitle-text').val();
-    $.ajax({
-        url: "http://localhost:1337/title/post744?title="+title+"&sublist="+subtitle,
+    if(title =="" || subtitle ==""){
+      alert("One of the fields (title or subtitle) are invalid");
+    }else{
+      $.ajax({
+        url: "https://cloud-assignment-orm.herokuapp.com/title/post744?title="+title+"&sublist="+subtitle,
         dataType:'json',
         beforeSend: function( xhr ) {
             $('.loading-div').hide();
@@ -27,6 +30,8 @@ $('.add-button').click(function(){
                     
               }            
     })
+    }
+
 
     
 });
@@ -36,7 +41,7 @@ $(document).on("click", "button.delete-button" , function() {
   var finalID = "class-"+currentId;
   $('.'+finalID).remove();
   $.ajax({
-    url: "http://localhost:1337/title/delete744?titleId="+currentId,
+    url: "https://cloud-assignment-orm.herokuapp.com/title/delete744?titleId="+currentId,
     dataType:'json',
     beforeSend: function( xhr ) {
       xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
@@ -53,7 +58,7 @@ $(document).on("click", "button.delete-button" , function() {
 
 function ajaxToView(){
     $.ajax({
-        url: "http://localhost:1337/title/get744",
+        url: "https://cloud-assignment-orm.herokuapp.com/title/get744",
         dataType:'json',
         beforeSend: function( xhr ) {
             $('.loading-div').hide();
@@ -73,8 +78,12 @@ function ajaxToView(){
 $('.search-button-search').click(function(){
   var inputField = $('.search-input').val();
   value = "";
+  if(title =="" || subtitle ==""){
+    alert("Search input is empty");
+  }else{
+  }
   $.ajax({
-    url: "http://localhost:1337/title/searchResults744?search="+inputField,
+    url: "https://cloud-assignment-orm.herokuapp.com/title/searchResults744?search="+inputField,
     dataType:'json',
     beforeSend: function( xhr ) {
         $('.unloading-div-search').html('');
